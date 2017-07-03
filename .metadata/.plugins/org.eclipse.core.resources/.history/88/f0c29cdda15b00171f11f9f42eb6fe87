@@ -1,0 +1,27 @@
+package jdbc2;
+
+import org.apache.commons.dbcp.BasicDataSource;
+
+/***
+ * 该类用于管理数据库连接
+ * @author admin
+ *
+ */
+public class DBUtil {
+	//org.apache.commons.dbcp.BasicDataSource;
+	// 数据库连接池
+	private static BasicDataSource ds;
+	private static String className;
+	private static String url;
+	private static String username;
+	private static String password;
+	
+	
+	// 初始化
+	
+	static{
+		//初始化静态属性
+		//1. 加载配置文件 config.properties
+		s
+	}
+}

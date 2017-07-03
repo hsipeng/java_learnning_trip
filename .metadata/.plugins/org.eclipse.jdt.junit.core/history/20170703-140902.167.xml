@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="TestDemo.test02" project="Spring" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testcase name="test02" classname="test.TestDemo" time="0.412"/>
+</testrun>

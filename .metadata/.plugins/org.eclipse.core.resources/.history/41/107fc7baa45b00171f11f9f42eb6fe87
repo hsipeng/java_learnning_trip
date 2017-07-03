@@ -1,0 +1,55 @@
+package jdbc2;
+
+import java.io.FileInputStream;
+import java.util.Properties;
+
+import org.apache.commons.dbcp.BasicDataSource;
+
+/***
+ * 该类用于管理数据库连接
+ * @author admin
+ *
+ */
+public class DBUtil {
+	//org.apache.commons.dbcp.BasicDataSource;
+	// 数据库连接池
+	private static BasicDataSource ds;
+	private static String className;
+	private static String url;
+	private static String username;
+	private static String password;
+	
+	
+	// 初始化
+	
+	static{
+		//初始化静态属性
+		//1. 加载配置文件 config.properties
+		/**
+		 * java.util.Properties
+		 * 用来读取properties文件并解析其中的每一行内容。
+		 */
+		
+		Properties prop = new Properties();
+		try {
+			prop.load(new FileInputStream("config.properties"));
+			className = prop.getProperty("className");
+			password = prop.getProperty("password");
+			url = prop.getProperty("url");
+			username = prop.getProperty("username");
+			System.out.println(className+password+url+username);
+			//初始化连接池
+			ds = new BasicDataSource();
+			//将JDBC所需要的信息设置到连接至连接池中
+			//Class.forName()
+			ds.setDriverClassName(className);
+			// Driver.Manager.getConnection
+			ds.setUrl(url);
+			ds.setUsername(username);
+			ds.setPassword(password);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+}

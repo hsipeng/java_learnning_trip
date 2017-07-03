@@ -1,0 +1,28 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>留言板</title>
+</head>
+<body onload="showList()">
+<div id="commentsList" >
+
+</div>
+</body>
+<script type="text/javascript">
+function showList(){
+	var json  ='<%=session.getAttribute("clist") %>';
+	console.log(json);
+	var commentslist = document.getElementById("commentsList");
+	var p="";
+	  for(var i in json)  
+	  {  
+		  console.log(json[i]);
+	  }  
+	//console.log(p);
+	//commentslist.innerHTML=p;
+}
+</script>
+</html>

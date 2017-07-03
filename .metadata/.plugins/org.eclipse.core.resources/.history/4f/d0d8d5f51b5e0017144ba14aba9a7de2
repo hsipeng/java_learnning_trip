@@ -1,0 +1,23 @@
+<html>
+<body>
+<h2>Hello World!</h2>
+
+<form action="ActionServlet" method="POST">
+            用户名：<input type="text" value="" name="username"><br/>
+            密    码：<input type="password" value="" name="password"><br/>
+            验证码：<input name="inputCode" value=""/>
+    <img src="VerifyCodeServlet" align="middle" title="看不清，请点我"  onclick="javascript:refresh(this);" onmouseover="mouseover(this)"/><br/>
+    <input type="submit">
+</form>
+</body>
+
+<script>  
+    function refresh(obj){  
+         obj.src = "VerifyCodeServlet?" + Math.random();  
+    }  
+      
+    function mouseover(obj){  
+        obj.style.cursor = "pointer";  
+    }  
+</script> 
+</html>

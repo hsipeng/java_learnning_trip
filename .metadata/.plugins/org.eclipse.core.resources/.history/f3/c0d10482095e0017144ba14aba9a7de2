@@ -1,0 +1,5 @@
+# 井号开头的为注释，正文内不要有中文
+classname=oracle.jdbc.driver.OracleDriver
+url=jdbc:oracle:thin:@localhost:1521:xe
+username=root
+password=123456

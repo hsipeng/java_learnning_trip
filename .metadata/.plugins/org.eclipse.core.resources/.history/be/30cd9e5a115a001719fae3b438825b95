@@ -1,0 +1,17 @@
+package jdbc;
+/**
+ * 创建表 emp
+ * 包含字段：
+ * empno NUMBER(6)
+ * ename VARCHAR2(50)
+ * sal        NUMBER(10,2)
+ * job       VARCHAR2(50)
+ * deptno NUMBER(6)
+ * 随意插入数据20到30条
+ * 
+ * @author admin
+ *
+ */
+public class JDBCDemo6 {
+	
+}

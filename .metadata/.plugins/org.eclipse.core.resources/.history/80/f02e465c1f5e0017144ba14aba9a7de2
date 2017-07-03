@@ -1,0 +1,62 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import Utils.DBUtil;
+import models.Comment;
+import models.User;
+
+public class CommentDaoImpl implements CommentDao{
+
+	public List<Comment> getAllComments() {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		User user = null;
+		try {
+			conn = DBUtil.getConnection();
+			String sql = "SELECT * "
+					+ "From user "
+					+ "WHERE username =?";
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, username);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()){
+				user = new User();
+				user.setId(rs.getInt("id"));
+				user.setUsername(rs.getString("username"));
+				user.setPassword(rs.getString("password"));
+				user.setNickname(rs.getString("nickname"));
+				user.setAvatar(rs.getString("avatar"));
+				user.setStatus(rs.getInt("status"));
+				user.setAuthority(rs.getInt("authority"));
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally{
+			if(ps !=null){
+				try {
+					ps.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+			if(conn !=null){
+				DBUtil.closeConnection(conn);
+			}
+		}
+		return null;
+	}
+
+	public List<Comment> getAllCommentsByPage(int page, int pageSize) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

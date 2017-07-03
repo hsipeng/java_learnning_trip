@@ -1,0 +1,79 @@
+package servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import dao.UserDao;
+import dao.UserDaoImpl;
+import models.User;
+
+/**
+ * Servlet implementation class ActionServlet
+ */
+public class ActionServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public ActionServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		dologin(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		dologin(request, response);
+	}
+	
+	protected void dologin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		HttpSession session = request.getSession();
+		String inputCode = request.getParameter("inputCode");  
+	    String verifyCode = (String)session.getAttribute("validateCode");
+	    System.out.println("inputcode:"+inputCode+"\n verifycode:"+verifyCode);
+//		System.out.println("name:"+username+"\n password:"+password);
+		UserDao userDao = new UserDaoImpl();
+		User user = userDao.findUserByName(username);
+		if(verifyCode.equals(inputCode.toUpperCase())){
+			if(user !=null){
+				if(password.equals(user.getPassword())){
+					
+					System.out.println("登录成功");
+					response.setContentType("text/html");
+					PrintWriter out = response.getWriter();
+
+			        out.println("<html><head><title>Login Result</title></head>");
+			        out.println("<body> username: " + username + "<br>");
+			        out.println("password: " + password + "</body></html>");
+
+			        out.flush();
+				}else {
+					System.out.println("密码错误");
+				}
+			}else {
+				System.out.println("用户名不存在");
+			}
+		}else {
+			System.out.println("验证码错误");
+		}
+	}
+}
