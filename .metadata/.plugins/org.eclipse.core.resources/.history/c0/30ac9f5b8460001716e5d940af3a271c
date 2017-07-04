@@ -1,0 +1,37 @@
+package beans;
+
+import java.util.List;
+
+public class Person {
+	private int id;
+	private String name;
+	
+	private List<String> list;
+	
+	
+	public List<String> getList() {
+		return list;
+	}
+	public void setList(List<String> list) {
+		this.list = list;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	@Override
+	public String toString() {
+		return "Person [id=" + id + ", name=" + name + ", list=" + list + "]";
+	}
+	
+	
+	
+}

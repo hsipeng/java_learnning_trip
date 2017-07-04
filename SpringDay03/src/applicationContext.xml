@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:aop="http://www.springframework.org/schema/aop"
+        xmlns:tx="http://www.springframework.org/schema/tx"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd"
+        default-lazy-init="default"
+        >
+<!-- id 唯一标识这个bean，不能重复
+    id遵循驼峰命名规则
+    class对象的具体路径，从package开始
+     -->
+<!-- 别名 name 属性中写，别名的id,alias别名 中英文都可以 -->
+<!--为属性赋值 -->
+<bean id="person" class="beans.Person" >
+        <property name="id" value="1"></property>
+        <property name="name" value="jack"></property>
+        <property name="list">
+        <list>
+        <value>1</value>
+        <value>2</value>
+        <value>a</value>
+        <value>c</value>
+        <value>5</value>
+        <value>f</value>
+        <value>g</value>
+        </list>
+        </property>
+        <property name="map">
+        <map>
+        <entry key="1" value="a"></entry>
+        <entry key="2" value="b"></entry>
+        <entry key="3" value="c"></entry>
+        <entry key="4" value="d"></entry>
+        <entry key="5" value="e"></entry>
+        </map>
+        </property>
+        <property name="pro">
+        <props>
+            <prop key="id">40</prop>
+            <prop key="name">王五</prop>
+        </props>
+        </property>
+        <!-- 为引用类型赋值 -->
+        
+        <property name="user" ref="user"></property>
+</bean>
+    <bean id="user" class="beans.User">
+    <property name="name">
+    <value>gg</value>
+    </property>
+    </bean>
+</beans>

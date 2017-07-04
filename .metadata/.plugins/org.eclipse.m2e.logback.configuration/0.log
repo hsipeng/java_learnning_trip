@@ -2284,3 +2284,7 @@ Caused by: org.eclipse.aether.transfer.ArtifactTransferException: Failure to tra
 2017-07-03 16:31:17,367 [Worker-128] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
 2017-07-03 16:31:17,367 [Worker-128] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2017-07-03 16:31:17,367 [Worker-128] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\project\Comments-SpringMVC\src\test\resources
+2017-07-04 09:08:36,289 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-04 09:08:36,299 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2017-07-04 09:08:36,309 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2017-07-04 09:08:36,309 [Worker-1] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\project\Comments-SpringMVC\src\test\resources
