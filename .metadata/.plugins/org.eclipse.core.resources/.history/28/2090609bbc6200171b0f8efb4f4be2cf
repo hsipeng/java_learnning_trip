@@ -1,0 +1,13 @@
+package bean;
+
+public class Host implements Rent{
+	private void Rent(){
+		
+	}
+
+	@Override
+	public void rent() {
+		System.out.println("我需要出租房子");
+		
+	}
+}

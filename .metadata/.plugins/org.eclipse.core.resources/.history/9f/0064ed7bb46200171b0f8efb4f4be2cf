@@ -1,0 +1,16 @@
+package dao;
+
+import org.springframework.stereotype.Repository;
+
+import bean.User;
+
+@Repository
+public class UserDaoImpl implements UserDao {
+	private User user;
+	@Override
+	public void addUser() {
+		System.out.println("add user \n userid is "+user.getId()+"\n name is "+user.getName());
+
+	}
+
+}

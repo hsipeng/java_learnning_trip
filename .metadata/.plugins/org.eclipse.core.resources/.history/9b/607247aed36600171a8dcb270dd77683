@@ -1,0 +1,14 @@
+package cn.service;
+
+import org.springframework.stereotype.Service;
+
+@Service("personService")
+public class PersonServiceImpl implements PersonService {
+
+	@Override
+	public void save(String name) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

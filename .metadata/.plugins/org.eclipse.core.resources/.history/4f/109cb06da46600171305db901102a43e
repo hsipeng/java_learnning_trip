@@ -1,0 +1,9 @@
+package cn.aspect;
+
+import sun.reflect.generics.tree.VoidDescriptor;
+
+public class MyAspect {
+	public void before(){
+		
+	}
+}

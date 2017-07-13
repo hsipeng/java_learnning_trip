@@ -1,0 +1,10 @@
+package bean;
+
+
+public class Proxy  extends Rent{
+	private Host host=new Host();
+	public void rent(){
+		
+	}
+	
+}

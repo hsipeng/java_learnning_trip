@@ -1,0 +1,8 @@
+/applicationContext.xml
+/bean/
+/dao/
+/service/
+/servlet/
+/test/
+/user.properties
+/tx/

@@ -1,0 +1,8 @@
+package cn.servlet;
+
+import cn.service.UserService;
+
+public class UserServlet {
+	private UserService userService;
+	
+}

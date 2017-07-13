@@ -1,0 +1,10 @@
+package bean;
+
+import org.springframework.beans.factory.annotation.Value;
+
+public class User {
+	@Value(value="${id}")
+	private int id;
+	@Value(value="${name}")
+	private String name;
+}

@@ -1,0 +1,23 @@
+package cn.servlet;
+
+import java.util.Calendar;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Controller;
+
+import cn.service.PersonService;
+
+@Controller
+public class PersonServlet {
+	@Resource
+	private PersonService personService;
+	public String save(String name){
+		Calendar c = Calendar.getInstance();
+		long start = c.getTimeInMillis();
+		personService.save(name);
+		long end = c.getTimeInMillis();
+		System.out.println("程序运行时间为：" +(end-start)+"ms");
+		return name;
+	}
+}

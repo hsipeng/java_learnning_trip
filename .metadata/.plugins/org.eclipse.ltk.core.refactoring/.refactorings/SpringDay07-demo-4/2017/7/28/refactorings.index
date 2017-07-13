@@ -1,0 +1,6 @@
+1499932315645	Rename type 'Transactional'
+1499933695873	Extract local variable 'methondName'
+1499933789436	Extract local variable 'target'
+1499934083165	Extract local variable 'method'
+1499934297392	Extract local variable 'info'
+1499934338681	Extract local variable 'name'

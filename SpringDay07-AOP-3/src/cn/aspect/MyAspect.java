@@ -1,0 +1,38 @@
+package cn.aspect;
+
+
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.springframework.stereotype.Component;
+
+
+
+@Component
+@Aspect
+public class MyAspect {
+	
+	/**
+	 * 通知内部加入切入点
+	 * 该切入点只绑定当前方法。
+	 */
+	@Before(value="execution(* cn.service..*(..)) && args(year) && target(t)")
+	public void before(int year,Object t) {
+		System.out.println("前置通知");
+		System.err.println("year is "+year);
+		System.out.println("目标对象："+t.getClass().getName());
+	}
+	
+	@AfterReturning(value="execution(* cn.service..*(..))",returning="year")
+	public void afterReturn(int year){
+		System.out.println("返回结果:"+year);
+	}
+	@AfterThrowing(value="execution(* cn.service..*(..))",throwing="throwable")
+	public void  afterThrow(Throwable throwable) {
+		System.err.println("异常:"+throwable.getClass().getName());
+		System.err.println("异常:"+throwable.getMessage());
+	}
+	
+}
+

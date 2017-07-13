@@ -1,0 +1,31 @@
+package cn.aspect;
+
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.springframework.stereotype.Component;
+@Component
+public class MyAspect {
+	public void before(JoinPoint joinPoint){
+		System.out.println("����һ��ǰ��֪ͨ");
+		//��ȡĿ����������
+		Class targetClass = joinPoint.getTarget().getClass();
+		String methodName = joinPoint.getSignature().getName();
+		System.out.println("Ŀ����������ǣ�"+targetClass);
+		System.out.println("Ŀ�귽����:"+methodName);
+	}
+	public Object around(ProceedingJoinPoint joinPoint) throws Throwable{
+		System.out.println("����֪ͨ��ʼ");
+		Object obj = (String) joinPoint.proceed();
+		System.out.println(obj);
+		System.out.println("����֪ͨ����");
+		return obj;
+	}
+	public void afterReturn(String number){
+		System.out.println("����ֵΪ��"+number);
+	}
+	
+
+	public void afterThrow(Throwable throwable){
+		System.out.println("�쳣��ϢΪ��"+throwable.getMessage());
+	}
+}

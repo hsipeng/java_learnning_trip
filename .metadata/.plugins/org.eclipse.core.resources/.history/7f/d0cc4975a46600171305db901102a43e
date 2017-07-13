@@ -1,0 +1,8 @@
+package cn.aspect;
+
+
+public class MyAspect {
+	public void before(){
+		
+	}
+}

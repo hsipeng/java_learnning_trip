@@ -1,0 +1,22 @@
+package cn.aspect;
+
+import org.aspectj.lang.JoinPoint;
+import org.springframework.stereotype.Component;
+
+import cn.anno.Hello;
+
+@Component
+public class MyAspect {
+	public void before(String name,int age,Object target,Hello hello){
+		System.out.println("前置通知");
+		System.out.println("获取的参数为 \n name:"+name+"age:"+age+"目标对象："+target+"注解："+hello);
+	}
+	
+//	public void beforeB(JoinPoint joinPoint){
+//		Object[] args = joinPoint.getArgs();
+//		Object target = joinPoint.getTarget();
+//		System.out.println(args);
+//		System.out.println("target:"+target);
+//	}
+}
+

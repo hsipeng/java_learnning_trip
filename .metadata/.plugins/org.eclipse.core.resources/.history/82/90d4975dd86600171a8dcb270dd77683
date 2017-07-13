@@ -1,0 +1,19 @@
+package cn.service;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
+import cn.dao.PersonDao;
+
+@Service("personService")
+public class PersonServiceImpl implements PersonService {
+	@Resource
+	private PersonDao personDao;
+	@Override
+	public String save(String name) {
+		personDao.save(name);
+		return name;
+	}
+
+}

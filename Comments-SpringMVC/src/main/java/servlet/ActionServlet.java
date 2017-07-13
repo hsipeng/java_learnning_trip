@@ -59,11 +59,64 @@ public class ActionServlet extends HttpServlet {
 		case "goPage":
 			showCommentByPage(request, response);
 			break;
+		case "reg":
+			doReg(request,response);
 		default:
 			
 			break;
 		}
 
+	}
+
+	private void doReg(HttpServletRequest request, HttpServletResponse response) {
+		System.out.print("reg");
+		HttpSession session = request.getSession();
+		String userName = request.getParameter("userName");
+		String password = request.getParameter("password");
+		String email = request.getParameter("email");
+		String nickName = request.getParameter("nickName");
+		String inputCode = request.getParameter("inputCode");
+		String verifyCode = (String)session.getAttribute("validateCode");
+
+		UserDao userDao = new UserDaoImpl();
+		User user = new User();
+		user.setUsername(userName);
+		user.setPassword(password);
+		user.setEmail(email);
+		user.setNickname(nickName);
+		user.setAvatar(" ");
+		System.out.println(inputCode);
+		if(inputCode.toUpperCase().equals(verifyCode)){
+			boolean t = userDao.Add(user);
+			if(t){
+
+				try {
+					response.setContentType("text/html");
+					response.setCharacterEncoding("utf-8");
+					response.getWriter().print("<script>alert('注册成功');window.location.href='index.jsp';</script>");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}else {
+				response.setContentType("text/html");
+				response.setCharacterEncoding("utf-8");
+				try {
+					response.getWriter().print("<script>alert('注册失败');history.go(-1)；</script>");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}else {
+			response.setContentType("text/html");
+			response.setCharacterEncoding("utf-8");
+			try {
+				response.getWriter().print("<script>alert('验证码错误');history.go(-1)；</script>");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
+		
 	}
 
 	private void showCommentByPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{

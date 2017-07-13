@@ -1,0 +1,13 @@
+package staticproxy;
+
+import service.UserService;
+
+public class StaticProxy implements UserService{
+
+	@Override
+	public void addUser() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

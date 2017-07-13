@@ -1,0 +1,10 @@
+package cn.servlet;
+
+import org.springframework.stereotype.Controller;
+
+import cn.service.UserService;
+@Controller
+public class UserServlet {
+	private UserService userService;
+	
+}

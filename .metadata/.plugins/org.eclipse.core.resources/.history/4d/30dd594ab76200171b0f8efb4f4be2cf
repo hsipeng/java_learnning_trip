@@ -1,0 +1,19 @@
+package service;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Component;
+
+import dao.UserDao;
+
+@Component
+public class UserServiceImpl implements UserService {
+	@Resource
+	private UserDao userDao;
+	@Override
+	public void addUser() {
+		userDao.addUser();
+
+	}
+
+}

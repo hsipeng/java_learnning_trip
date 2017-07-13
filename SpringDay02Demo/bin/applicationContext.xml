@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.2.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util-3.2.xsd">
+	<!-- 开启包扫描 -->
+	
+	<context:property-placeholder location="classpath:/user.properties"/>
+	<context:component-scan base-package="beans"/>
+	<util:list id="list">
+	<value>自行车1</value>
+	<value>自行车2</value>
+	<value>自行车3</value>
+	<value>自行车4</value>
+	<value>自行车5</value>
+	<value>自行车6</value>
+	</util:list>
+	
+	<util:set id="set">
+	<value>公交车1</value>
+	<value>公交车2</value>
+	<value>公交车3</value>
+	<value>公交车4</value>
+	<value>公交车5</value>
+	<value>公交车6</value>
+	<value>公交车7</value>
+	</util:set>	
+	
+	<util:map id="map">
+	<entry key="1" value="a"></entry>
+	<entry key="1" value="a"></entry>
+	<entry key="1" value="a"></entry>
+	<entry key="1" value="a"></entry>
+	<entry key="1" value="a"></entry>
+	<entry key="1" value="a"></entry>
+	<entry key="1" value="a"></entry>
+	</util:map>
+	
+	</beans>

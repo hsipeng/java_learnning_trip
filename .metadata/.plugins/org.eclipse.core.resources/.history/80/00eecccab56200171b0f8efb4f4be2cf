@@ -1,0 +1,21 @@
+package test;
+
+
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import servlet.UserServlet;
+
+
+public class TestDemo {
+	//多例与单例
+	@Test
+	public void test01(){
+		ClassPathXmlApplicationContext c = new ClassPathXmlApplicationContext("applicationContext.xml");
+		UserServlet us = (UserServlet) c.getBean("userservlet");
+		System.out.println(us);
+		us.addUser();
+		c.close();
+	}
+}

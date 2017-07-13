@@ -1,0 +1,32 @@
+package cn.service;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
+import cn.anno.PrivilegeInfo;
+import cn.dao.PersonDao;
+
+@Service("personService")
+public class PersonServiceImpl implements PersonService {
+	@Resource
+	private PersonDao personDao;
+	@Override
+	@PrivilegeInfo(name = "")
+	public String save(String name) {
+		int i= 1/0;
+		personDao.save(name);
+		return name;
+	}
+	@Override
+	public void delete() {
+		System.out.println("删除用户");
+		
+	}
+	@Override
+	public void findAll() {
+		System.out.println("查询全部用户");
+		
+	}
+
+}

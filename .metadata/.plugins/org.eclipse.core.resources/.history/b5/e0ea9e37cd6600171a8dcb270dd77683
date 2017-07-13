@@ -1,0 +1,14 @@
+package cn.aspect;
+
+
+import org.springframework.stereotype.Component;
+
+
+
+@Component
+@Aspect
+public class MyAspect {
+	
+	
+}
+

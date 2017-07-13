@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;SpringDay06-gclibProxy&apos; to &apos;SpringDay06-cglibProxy&apos;" description="Rename resource &apos;SpringDay06-gclibProxy&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/SpringDay06-gclibProxy" name="SpringDay06-cglibProxy" stamp="1499667233951" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;SpringDay06-AOP&apos; to &apos;SpringDay06-test&apos;" description="Rename resource &apos;SpringDay06-AOP&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/SpringDay06-AOP" name="SpringDay06-test" stamp="1499823832881" updateReferences="true"/>
+</session>

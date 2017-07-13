@@ -1,0 +1,14 @@
+package cn.service;
+
+import cn.dao.UserDao;
+
+public class UserServiceImpl implements UserService {
+	
+	private UserDao userDao;
+	@Override
+	public void addUser() {
+		userDao.addUser();
+
+	}
+
+}
