@@ -1,0 +1,24 @@
+package cn.service;
+
+import javax.annotation.Resource;
+
+import cn.dao.Person;
+import cn.dao.PersonImpl;
+@Service
+public class ServiceImpl implements Service {
+
+	@Resource
+	private PersonImpl PersonDao;
+	@Override
+	public void save() {
+		PersonDao.save();
+
+	}
+
+	@Override
+	public void del() {
+		PersonDao.del();
+
+	}
+
+}

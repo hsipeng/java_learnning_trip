@@ -1,0 +1,6 @@
+1499997269216	Rename resource 'jdbc.porperties'
+1499997818969	Rename type 'testAOP'
+1499997935065	Extract local variable 'bean'
+1499998100428	Extract local variable 'connection'
+1500001695960	Extract local variable 'prepareStatement'
+1500001715437	Extract local variable 'result'

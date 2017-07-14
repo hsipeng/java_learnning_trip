@@ -1,0 +1,7 @@
+package cn.bean;
+
+public class User {
+	int id;
+	private Stirng name;
+	private int age;
+}

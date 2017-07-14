@@ -1,0 +1,22 @@
+package test;
+
+import java.util.Calendar;
+
+import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import cn.servlet.PersonServlet;
+
+
+
+public class testJDBC {
+//测试数据库连接
+	@Test
+	public void test01(){
+		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		
+		
+		
+	}
+}

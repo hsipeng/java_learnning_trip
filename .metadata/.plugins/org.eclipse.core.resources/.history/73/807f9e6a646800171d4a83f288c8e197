@@ -1,0 +1,6 @@
+package cn.anno;
+
+
+public @interface PrivilegeAnno {
+	public String name();
+}

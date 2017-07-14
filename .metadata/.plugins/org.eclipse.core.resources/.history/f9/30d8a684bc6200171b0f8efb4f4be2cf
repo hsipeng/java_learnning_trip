@@ -1,7 +1,0 @@
-package bean;
-
-public class Host {
-	private void Rent(){
-		System.out.println("我需要出租房子");
-	}
-}

@@ -54,6 +54,7 @@ public class PersonAspect {
 			PrivilegeInfo info = method.getAnnotation(PrivilegeInfo.class);
 			//获取权限注解的值
 			String name = info.name();
+			System.out.println("anno:"+name);
 			//判断
 			if(pList.contains(name)){
 				System.out.println("权限SSS");

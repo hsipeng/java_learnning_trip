@@ -1,0 +1,6 @@
+package cn.dao;
+
+public class Person {
+	public void save();
+	public void del();
+}

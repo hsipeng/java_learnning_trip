@@ -1,0 +1,6 @@
+package cn.service;
+
+public interface Service {
+	public void save();
+	public void del();
+}

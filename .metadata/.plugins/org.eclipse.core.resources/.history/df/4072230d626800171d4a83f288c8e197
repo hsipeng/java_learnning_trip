@@ -1,0 +1,17 @@
+package cn.service;
+
+public class ServiceImpl implements Service {
+
+	@Override
+	public void save() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void del() {
+		// TODO Auto-generated method stub
+
+	}
+
+}
