@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Extract local variable &apos;proceed&apos; from expression &apos;joinPoint.proceed()&apos;&#x0D;&#x0A;- Original project: &apos;SpringDay07-AOP-2&apos;&#x0D;&#x0A;- Variable name: &apos;proceed&apos;&#x0D;&#x0A;- Destination method: &apos;cn.aspect.MyAspect.around()&apos;&#x0D;&#x0A;- Variable expression: &apos;joinPoint.proceed()&apos;&#x0D;&#x0A;- Replace occurrences of expression with variable" description="Extract local variable &apos;proceed&apos;" final="false" id="org.eclipse.jdt.ui.extract.temp" input="/src&lt;cn.aspect{MyAspect.java" name="proceed" replace="true" selection="703 0" stamp="1499830243229" version="1.0"/>
-</session>

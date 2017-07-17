@@ -1,5 +1,0 @@
-package com.mybatis3.mappers;
-
-public class StudentMapper {
-
-}

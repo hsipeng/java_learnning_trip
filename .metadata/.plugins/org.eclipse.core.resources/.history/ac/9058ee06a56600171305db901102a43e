@@ -1,8 +1,0 @@
-package cn.aspect;
-
-
-public class MyAspect {
-	public void before(String name,int age){
-		System.out.println("前置通知");
-	}
-}
