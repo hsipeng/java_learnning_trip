@@ -44,6 +44,7 @@
 	</section>
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="D:\project\maven"/>
 			<item value="D:\project"/>
 		</list>
 		<list key="projectNameTemplate">
@@ -57,12 +58,16 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="cn.lirawx.test"/>
+			<item value="cn.lirawx.testMybatis"/>
 			<item value="cn.lirawx.Comments_SpringMVC"/>
 		</list>
 		<list key="groupId">
 			<item value="cn.lirawx"/>
 		</list>
 		<list key="artifactId">
+			<item value="test"/>
+			<item value="testMybatis"/>
 			<item value="Comments-SpringMVC"/>
 		</list>
 		<list key="projectNameTemplate">
