@@ -1,5 +1,6 @@
 package cn.dao;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -7,6 +8,7 @@ import javax.annotation.Resource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import cn.anno.SaveToMap;
 import cn.bean.User;
 import cn.mapper.UserMapper;
 @Repository
@@ -16,10 +18,10 @@ public class UserDaoImpl implements UserDao {
 	@Resource
 	private UserMapper userMapper;
 	@Override
-	public void addUser(User user) {
+	public void addUser(User user) throws SQLException{
 		String sql = "INSERT INTO user VALUES(null,?,?)";
 		jdbcTemplate.update(sql,user.getName(),user.getAge());
-
+		int a = 1/0;
 	}
 
 	@Override
@@ -42,6 +44,7 @@ public class UserDaoImpl implements UserDao {
 		List<User> userlist = jdbcTemplate.query(sql,userMapper);
 		return userlist;
 	}
+
 
 	@Override
 	public User findOne(int id) {

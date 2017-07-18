@@ -1,0 +1,13 @@
+package cn.service;
+
+import cn.bean.Person;
+
+public class PersonServiceImpl implements PersonService {
+
+	@Override
+	public void addPerson(Person person) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

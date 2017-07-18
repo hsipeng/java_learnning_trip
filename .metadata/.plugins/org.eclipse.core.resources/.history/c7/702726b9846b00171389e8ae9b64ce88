@@ -1,0 +1,18 @@
+package cn.service;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
+import cn.bean.Person;
+@Service
+public class PersonServiceImpl implements PersonService {
+	@Resource
+	private PersonService personService;
+	@Override
+	public void addPerson(Person person) {
+		personService.addPerson(person);
+
+	}
+
+}

@@ -22,7 +22,7 @@ public class TestSpring {
 		context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
 	}
-	@Test
+	/*@Test
 	public void test01() throws SQLException{
 		UserServlet userServlet = (UserServlet)context.getBean("userServlet");
 		List<User> userList = userServlet.findAll();
@@ -36,8 +36,8 @@ public class TestSpring {
 	public void test03() throws SQLException{
 		UserServlet userServlet = (UserServlet)context.getBean("userServlet");
 		User user = new User();
-		user.setName("abcdefg");
-		user.setAge(303);
+		user.setName("kkkkk");
+		user.setAge(03);
 		user.setId(7);
 		userServlet.addUser(user);
 		System.out.println(user);
@@ -61,12 +61,27 @@ public class TestSpring {
 		userServlet.delUser(7);
 		System.out.println("del");
 		
-	}
+	}*/
 	@Test
 	public void test05() throws SQLException{
 		UserServlet userServlet = (UserServlet)context.getBean("userServlet");
+		System.out.println("first:");
+		User user = userServlet.findOne(4);
+		System.out.println(user);
+		System.out.println("second:");
+		User user2 = userServlet.findOne(4);
+		System.out.println(user2);
 		
-		User user = userServlet.findOne(8);
+	}
+	
+	@Test
+	public void test06() throws SQLException{
+		UserServlet userServlet = (UserServlet)context.getBean("userServlet");
+		User user = userServlet.findOne(4);
+		userServlet.findOne(4);
+		userServlet.findOne(4);
+		userServlet.findOne(4);
+		userServlet.findOne(4);
 		System.out.println(user);
 		
 	}

@@ -1,0 +1,44 @@
+package cn.aspect;
+
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
+import java.util.HashMap;
+
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.springframework.stereotype.Component;
+
+import com.sun.javafx.collections.MappingChange.Map;
+
+import cn.bean.User;
+import cn.util.SaveMap;
+
+@Component
+@Aspect
+public class MyAspect {
+	@Around(value="execution(* cn.service..*(..))")
+	public Object around(ProceedingJoinPoint joinPoint) throws Throwable{
+		System.out.println("环绕通知开始");
+		Object obj = null;
+		HashMap<Integer, User> uMap = (HashMap<Integer,User>) SaveMap.getUserMap();
+		String methodName = joinPoint.getSignature().getName();
+		//获取目标方法参数，返回值是Object数组
+		Object[] args = joinPoint.getArgs();
+		//将Object转化为class类型，方便下面操作
+		Class[] argClass = new Class[args.length];
+		for(int i =0;i<args.length;i++){
+			argClass[i] = args[i].getClass();
+		}
+		//获取目标对象
+		Class targetClass = joinPoint.getTarget().getClass();
+		//获取method对象
+		Method method = targetClass.getMethod(methodName, argClass);
+		System.out.println("method:"+method);
+		System.out.println(method.getParameters());
+		obj=joinPoint.proceed();
+		
+		System.out.println("环绕通知结束");
+		return obj;
+	}
+}

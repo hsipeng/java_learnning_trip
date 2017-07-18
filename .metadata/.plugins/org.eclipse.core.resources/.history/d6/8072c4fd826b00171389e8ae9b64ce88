@@ -1,0 +1,5 @@
+package cn.service;
+
+public interface PersonService {
+	public void addPerson(Person person);
+}

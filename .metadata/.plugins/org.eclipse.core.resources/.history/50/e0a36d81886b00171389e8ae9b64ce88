@@ -1,0 +1,13 @@
+package cn.util;
+
+
+
+import java.util.HashMap;
+import java.util.Map;
+
+import cn.bean.User;
+
+public class SaveMap {
+	Private Map<Integer, User> uMap= new HashMap<Integer,User>();
+	
+}
