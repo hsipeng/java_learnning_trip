@@ -46,14 +46,30 @@
 	</body>
 
 	<script type="text/javascript">
+
+	var USER_ID = 2;
+
+		function SearchIdInTable(tablerow, findid) {
+			let i;
+			let tablerownum = tablerow.length;
+			// alert(tablerow.length+":"+findid)
+			for(i = 1;i <=tablerownum; i++){
+				// alert($("#usertable tr:eq(1)").children()[1].innerHTML)
+				if($("#usertable tr:eq("+i+")").children()[1].innerHTML == findid){
+					return i;
+				}
+
+			}
+			return -1;
+		}
 		function removeUser(user) {
 			$(user).parents("tr").remove()
 		}
 
 		function removeSelectUser() {
-			$("#usertable input:not('#allCheckbox'):checked").each(function () {
+			$("#usertable input:gt(0):checked").each(function () {
 					$(this).parents("tr").remove()
-				})
+			})
 		}
 
 
@@ -62,23 +78,38 @@
 			// for (var i = 0;i < userNodes.length;i++) {
 			// 	console.log(userNodes[i].innerHTML)
 			// }
+			// alert(userNodes[1].innerHTML)
 			$("#id_update").val(userNodes[1].innerHTML)
 			$("#name_update").val(userNodes[2].innerHTML)
 			$("#email_update").val(userNodes[3].innerHTML)
 			$("#tel_update").val(userNodes[4].innerHTML)
-			removeUser(user)
+			// removeUser(user)
 		}
 		$(document).ready(function() {
+
+			$("#id").val(USER_ID)
+
 			$("#addUser").click(function () {
-				$("#usertable").append("<tr>"
+				if(""==$("#name").val()||""==$("#email").val()||""==$("#tel").val()){
+					alert("不能为空。")
+				}else{
+					$("#usertable").append("<tr>"
 					+"<td><input type='checkbox' id='allCheckbox'/></td>"
-					+"<td>"+$("#id").val()+"</td>"
+					+"<td>"+USER_ID+"</td>"
 					+"<td>"+$("#name").val()+"</td>"
 					+"<td>"+$("#email").val()+"</td>"
 					+"<td>"+$("#tel").val()+"</td>"
 					+"<td><a href='javascript:'onclick='addmodifyUser(this)'>修改</a></td>"
 					+"<td><a href='javascript:'onclick='removeUser(this)'>删除</a></td>"
-				+"</tr>")
+				+"</tr>");
+				USER_ID++;
+				$("#id").val(USER_ID);
+				$("#name").val("");
+				$("#email").val("");
+				$("#tel").val("");
+
+				}
+
 			})
 
 			$("#deleteUser").click(function () {
@@ -88,29 +119,59 @@
 			$("#updateUser").click(function () {
 				// var updateUserList = [$("#id_update").val(),$("#name_update").val(),$("#email_update").val(),$("#tel_update").val()]
 				// console.log(updateUserList)
-				$("#usertable").append("<tr>"
-					+"<td><input type='checkbox' id='allCheckbox'/></td>"
-					+"<td>"+$("#id_update").val()+"</td>"
-					+"<td>"+$("#name_update").val()+"</td>"
-					+"<td>"+$("#email_update").val()+"</td>"
-					+"<td>"+$("#tel_update").val()+"</td>"
-					+"<td><a href='javascript:'onclick='addmodifyUser(this)'>修改</a></td>"
-					+"<td><a href='javascript:'onclick='removeUser(this)'>删除</a></td>"
-				+"</tr>")
+				let i=SearchIdInTable($("#usertable tr"), $("#id_update").val());
+				// alert(i)
+				if(i !=-1){
+					let name = $("#name_update").val()
+					let email = $("#email_update").val()
+					let tel = $("#tel_update").val()
+					// alert($("#usertable tr:eq(" + i + ")").children()[1].innerHTML)
+					$("#usertable tr:eq(" + i + ")").children()[2].innerHTML=name
+					$("#usertable tr:eq(" + i + ")").children()[3].innerHTML=email
+					$("#usertable tr:eq(" + i + ")").children()[4].innerHTML=tel
+
+					$("#id_update").val("")
+					$("#name_update").val("")
+					$("#email_update").val("")
+					$("#tel_update").val("")
+				}
+
+				// $("#usertable").append("<tr>"
+				// 	+"<td><input type='checkbox' id='allCheckbox'/></td>"
+				// 	+"<td>"+$("#id_update").val()+"</td>"
+				// 	+"<td>"+$("#name_update").val()+"</td>"
+				// 	+"<td>"+$("#email_update").val()+"</td>"
+				// 	+"<td>"+$("#tel_update").val()+"</td>"
+				// 	+"<td><a href='javascript:'onclick='addmodifyUser(this)'>修改</a></td>"
+				// 	+"<td><a href='javascript:'onclick='removeUser(this)'>删除</a></td>"
+				// +"</tr>")
 
 
 
 			})
 
 			$("#allCheckbox").click(function () {
-				""==($(this).attr("checked")) ? $(this).attr("checked","checked") : $(this).attr("checked","")
-
-      $("#usertable input[type='checkbox']").each(function(index, el) {
-
-        ""==($(this).attr("checked")) ? $(this).attr("checked","checked") : $(this).attr("checked","")
-      });
-    })
+			if($("#allCheckbox").attr("checked")){
+				checkAll();
+			}else{
+				CancelAll();
+			}
+    		})
 		});
+
+
+
+		function checkAll(){
+			$("#usertable input[type='checkbox']").each(function(index, el){
+				$(this).attr("checked","checked");
+			})
+		}
+
+		function CancelAll(){
+			$("#usertable input[type='checkbox']").each(function(index, el){
+				$(this).attr("checked","");
+			})
+		}
 	</script>
 </html>
 
