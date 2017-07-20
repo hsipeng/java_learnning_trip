@@ -3,10 +3,10 @@
   <head>
     <title>层级选择器</title>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	
+
 	<!--引入jquery的js库-->
 	<script src="../../js/jquery-1.4.2.js"></script>
-	
+
 	<style type="text/css">
 		 	div,span{
 			    width: 140px;
@@ -18,7 +18,7 @@
 			    font-size: 17px;
 			    font-family:Roman;
 			}
-			
+
 			div.mini{
 			    width: 30px;
 			    height: 30px;
@@ -29,42 +29,42 @@
 			}
 	 </style>
 
-    
+
 	</head>
-	 
+
 	<body>
-				
+
 		 <input type="button" value="保存"  class="mini" name="ok"  class="mini" />
 		 <input type="button" value="改变 <body> 内所有 <div> 的背景色为 #0000FF"  id="b1"/>
 		 <input type="button" value=" 改变 <body> 内子 <div> 的背景色为 #FF0033"  id="b2"/>
 		 <input type="button" value=" 改变 id 为 one 的下一个 <div> 的背景色为 #0000FF"  id="b3"/>
 		 <input type="button" value=" 改变 id 为 two 的元素后面的所有兄弟<div>的元素的背景色为 # #0000FF"  id="b4"/>
-		 <input type="button" value=" 改变 id 为 two 的元素所有 <div> 兄弟元素的背景色为 #0000FF"  id="b5"/>		
- 
+		 <input type="button" value=" 改变 id 为 two 的元素所有 <div> 兄弟元素的背景色为 #0000FF"  id="b5"/>
+
 		 <h1>天气冷了</h1>
 		 <h2>天气又冷了</h2>
-		 
+
 	     <div id="one">
-	    	 id为one  
-		     
+	    	 id为one
+
 		 </div>
-		
+
 		 <div id="two" class="mini" >
-	    	   id为two   class是 mini 
+	    	   id为two   class是 mini
 		       <div  class="mini" >class是 mini</div>
 		</div>
-		
+
 		 <div class="one" >
-		 	    class是 one 
+		 	    class是 one
 		       <div  class="mini" >class是 mini</div>
 			   <div  class="mini" >class是 mini</div>
 		 </div>
 		 <div class="one">
-		 	  class是 one 
+		 	  class是 one
 		       <div  class="mini01" >class是 mini01</div>
 			   <div  class="mini" >class是 mini</div>
 		</div>
-		
+
 		<br>
 		<div id="mover" >
 		 	  动画
@@ -72,8 +72,31 @@
 		<br>
 		<span class="spanone">    span
 		</span>
-		
+
 	</body>
+	<script type="text/javascript">
+		$().ready(function () {
+			$("#b1").click(function () {
+				$("body div").css("background","red")
+			})
+
+
+		$("#b2").click(function () {
+				$("body>div").css("background","red")
+			})
+		$("#b3").click(function () {
+				$("#one+div").css("background","red")
+			})
+		$("#b4").click(function () {
+				$("#two ~ div").css("background","red")
+			})
+
+		$("#b5").click(function () {
+				$("#two").siblings("div").css("background","red")
+			})
+
+		})
+	</script>
 </html>
 
 

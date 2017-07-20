@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<script language="JavaScript" src="../../js/jquery-1.4.2.js"></script>
   </head>
-	 
+
 	 <body>
     This is my HTML page. <br>
 		<table id="t1">
@@ -30,8 +30,8 @@
 		<br>
 		<br>
 		<br>
-		
-		
+
+
 		<table id="t2">
 			<tr>
 				<td>id</td>
@@ -54,7 +54,7 @@
 		<br>
 		<br>
 		<br>
-		
+
 		<table id="t3">
 			<tr>
 				<td>id</td>
@@ -83,7 +83,21 @@
 		</table>
 		<button id="b3" type=button>点击奇偶列变色</button>
   </body>
-   
+   <script type="text/javascript">
+   	$(document).ready(function() {
+   		$("#b1").click(function () {
+   			$("#t1").css("background","red")
+   		})
+
+   		$("#b2").click(function () {
+   			$("#t2 tr :nth-child(1)").css("background","red")
+   		})
+
+   		$("#b3").click(function () {
+   			$("#t3 tr:odd").css("background","red")
+   		})
+   	});
+   </script>
 </html>
 
 

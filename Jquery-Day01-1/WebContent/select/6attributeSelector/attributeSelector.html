@@ -15,7 +15,7 @@
 			    font-size: 17px;
 			    font-family:Roman;
 			}
-			
+
 			div.mini{
 			    width: 30px;
 			    height: 30px;
@@ -24,16 +24,16 @@
 			    font-size: 12px;
 			    font-family:Roman;
 			}
-			
+
 			div.visible{
 				display:none;
 			}
 	 </style>
 	 <!--引入jquery的js库-->
 	</head>
-	 
+
 	<body>
-				
+
 		 <input type="button" value="保存"  class="mini" name="ok"  class="mini" />
 		 <input type="button" value=" 含有属性title 的div元素"  id="b1"/>
 		 <input type="button" value=" 属性title值等于test的div元素"  id="b2"/>
@@ -43,28 +43,28 @@
 		 <input type="button" value="属性title值 含有es的div元素."  id="b6"/>
 		 <input type="button" value="选取有属性id的div元素，然后在结果中选取属性title值含有“es”的 div 元素"  id="b7"/>
 		 <input type="button" value="选择隐藏域,含有title的属性的div,id为one,class为one的元素"  id="b8"/>
-		 
+
 		 <!--文本隐藏域-->
          <input type="hidden" value="hidden_1">
 		 <input type="hidden" value="hidden_2">
 		 <input type="hidden" value="hidden_3">
 		 <input type="hidden" value="hidden_4">
-		 
+
 		 <h1>天气冷了</h1>
 		 <h2>天气又冷了</h2>
-		 
+
 	     <div id="one">
 	    	 id为one   div
-		     
+
 		 </div>
-		
+
 		 <div id="two" class="mini"  title="test">
 	    	   id为two   class是 mini  div  title="test"
 		       <div  class="mini" >class是 mini</div>
 		</div>
-		
+
 		 <div class="visible" >
-		 	    class是 one 
+		 	    class是 one
 		       <div  class="mini" >class是 mini</div>
 			   <div  class="mini" >class是 mini</div>
 		 </div>
@@ -73,25 +73,59 @@
 		       <div  class="mini01" >class是 mini01</div>
 			   <div  class="mini" >class是 mini</div>
 		</div>
-		
-		
+
+
 		<div class="visible" >
 		 	  这是隐藏的
 		</div>
-		
+
 		<div class="one">
-			
-			
+
+
 		</div>
 		<br>
 		<div id="mover" >
 		 	  动画
 		</div>
 		<br>
-		
-		
+
+
 	</body>
-   
+   <script type="text/javascript">
+   	$(document).ready(function() {
+   		$("#b1").click(function () {
+   			$("div[title]").css('background', 'red');
+   		})
+
+   		$("#b2").click(function () {
+   			$("div[title='test']").css('background', 'red');
+   		})
+
+   		$("#b3").click(function () {
+   			$("div[title!='test']").css('background', 'red');
+   		})
+
+   		$("#b4").click(function () {
+   			$("div[title^='te']").css('background', 'red');
+   		})
+
+   		$("#b5").click(function () {
+   			$("div[title$='est']").css('background', 'red');
+   		})
+
+   		$("#b6").click(function () {
+   			$("div[title*='es']").css('background', 'red');
+   		})
+
+   		$("#b7").click(function () {
+   			$("div[id][title*='es']").css('background', 'red');
+   		})
+
+   		$("#b8").click(function () {
+   			$("input[type='hidden'],div[title],#one,.one").css('background', 'red');
+   		})
+   	});
+   </script>
 </html>
 
 

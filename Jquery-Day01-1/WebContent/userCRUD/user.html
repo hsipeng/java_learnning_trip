@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<script language="JavaScript" src="../js/jquery-1.4.2.js"></script>
+		<title>添加用户</title>
+	</head>
+
+	<body>
+		<center>
+			<br><br>
+			添加用户:<br><br>
+			ID:	<input type="text" name="id" id="id"/>&nbsp;&nbsp;
+			姓名: <input type="text" name="name" id="name" />&nbsp;&nbsp;
+			email: <input type="text" name="email" id="email" />&nbsp;&nbsp;
+			电话: <input type="text" name="tel" id="tel" /><br><br>
+			<button id="addUser">提交</button>
+			<br><br>
+			<hr>
+			<br><br>
+			<table id="usertable" border="1" cellpadding="5" cellspacing=0>
+				<tr>
+					<th><input type="checkbox" id="allCheckbox"/></th>
+					<th>ID</th>
+					<th>姓名</th>
+					<th>email</th>
+					<th>电话</th>
+					<th>修改</th>
+					<th>删除</th>
+				</tr>
+				<tr><td><input type="checkbox"></td><td>1</td><td>a</td><td>aaa@qq.com</td><td>13101855057</td><td><a href='javascript:'onclick='addmodifyUser(this);'>修改</a></td><td><a href="javascript:" onclick="removeUser(this);">删除</a></td></tr>
+			</table>
+			<button type="button" id="deleteUser">删除选中数据</button>
+			<br>
+			<br>
+			<br>
+			<hr>
+			修改用户:<br><br>
+			ID:<input type="text" name="name" id="id_update" readonly="readoonly"/>&nbsp;&nbsp;
+			姓名: <input type="text" name="name" id="name_update" />&nbsp;&nbsp;
+			email: <input type="text" name="email" id="email_update" />&nbsp;&nbsp;
+			电话: <input type="text" name="tel" id="tel_update" /><br><br>
+			<input type="hidden" id="id_update"/>
+			<button id="updateUser">提交</button>
+		</center>
+	</body>
+
+	<script type="text/javascript">
+		function removeUser(user) {
+			$(user).parents("tr").remove()
+		}
+
+		function removeSelectUser() {
+			$("#usertable input:not('#allCheckbox'):checked").each(function () {
+					$(this).parents("tr").remove()
+				})
+		}
+
+
+		function addmodifyUser(user) {
+			var userNodes = $(user).parents("tr").children()
+			// for (var i = 0;i < userNodes.length;i++) {
+			// 	console.log(userNodes[i].innerHTML)
+			// }
+			$("#id_update").val(userNodes[1].innerHTML)
+			$("#name_update").val(userNodes[2].innerHTML)
+			$("#email_update").val(userNodes[3].innerHTML)
+			$("#tel_update").val(userNodes[4].innerHTML)
+			removeUser(user)
+		}
+		$(document).ready(function() {
+			$("#addUser").click(function () {
+				$("#usertable").append("<tr>"
+					+"<td><input type='checkbox' id='allCheckbox'/></td>"
+					+"<td>"+$("#id").val()+"</td>"
+					+"<td>"+$("#name").val()+"</td>"
+					+"<td>"+$("#email").val()+"</td>"
+					+"<td>"+$("#tel").val()+"</td>"
+					+"<td><a href='javascript:'onclick='addmodifyUser(this)'>修改</a></td>"
+					+"<td><a href='javascript:'onclick='removeUser(this)'>删除</a></td>"
+				+"</tr>")
+			})
+
+			$("#deleteUser").click(function () {
+				removeSelectUser()
+			})
+
+			$("#updateUser").click(function () {
+				// var updateUserList = [$("#id_update").val(),$("#name_update").val(),$("#email_update").val(),$("#tel_update").val()]
+				// console.log(updateUserList)
+				$("#usertable").append("<tr>"
+					+"<td><input type='checkbox' id='allCheckbox'/></td>"
+					+"<td>"+$("#id_update").val()+"</td>"
+					+"<td>"+$("#name_update").val()+"</td>"
+					+"<td>"+$("#email_update").val()+"</td>"
+					+"<td>"+$("#tel_update").val()+"</td>"
+					+"<td><a href='javascript:'onclick='addmodifyUser(this)'>修改</a></td>"
+					+"<td><a href='javascript:'onclick='removeUser(this)'>删除</a></td>"
+				+"</tr>")
+
+
+
+			})
+
+			$("#allCheckbox").click(function () {
+				""==($(this).attr("checked")) ? $(this).attr("checked","checked") : $(this).attr("checked","")
+
+      $("#usertable input[type='checkbox']").each(function(index, el) {
+
+        ""==($(this).attr("checked")) ? $(this).attr("checked","checked") : $(this).attr("checked","")
+      });
+    })
+		});
+	</script>
+</html>
+

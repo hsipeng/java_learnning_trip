@@ -15,7 +15,7 @@
 			    font-size: 17px;
 			    font-family:Roman;
 			}
-			
+
 			div.mini{
 			    width: 30px;
 			    height: 30px;
@@ -26,11 +26,11 @@
 			}
 	 </style>
 	 <!--引入jquery的js库-->
-    
+
 	</head>
-	 
+
 	<body>
-				
+
 		 <input type="button" value="保存"  class="mini" name="ok"  class="mini" />
 		 <input type="button" value=" 改变第一个 div 元素的背景色为 #0000FF"  id="b1"/>
 		 <input type="button" value=" 改变最后一个 div 元素的背景色为 #0000FF"  id="b2"/>
@@ -43,35 +43,85 @@
 		 <input type="button" value=" 改变索引值为小于 3 的 div 元素的背景色为 #0000FF"  id="b8"/>
 		 <input type="button" value=" 改变所有的标题元素的背景色为 #0000FF"  id="b9"/>
 		 <input type="button" value=" 改变索引值大于1小于6的div元素的背景色为 #0000FF"  id="b10"/>
-		
+
 		 <h1>天气冷了</h1>
 		 <h2>天气又冷了</h2>
-		 
+
 	     <div id="one">
-	    	 id为one  
-		     
+	    	 id为one
+
 		 </div>
-		
+
 		 <div id="two" class="mini" >
-	    	   id为two   class是 mini 
+	    	   id为two   class是 mini
 		       <div  class="mini" >class是 mini</div>
 		</div>
-		
+
 		 <div class="two" title="aa">
 		 	    class是 two    title为aa
 		       <div  class="mini" >class是 mini</div>
 			   <div  class="mini" >class是 mini</div>
 		 </div>
 		 <div class="one" >
-		 	  class是 one 
+		 	  class是 one
 		       <div  class="mini01" >class是 mini01</div>
 			   <div  class="mini" >class是 mini</div>
 		</div>
-		
-		
+
+
 	</body>
-	
-   
+
+   <script type="text/javascript">
+   	$().ready(function () {
+   		$("#b1").click(function() {
+   			// $("div:first").css("background","red")
+   			$("div").first().css("background","red")
+   		});
+
+   		$("#b2").click(function() {
+   			// $("div:first").css("background","red")
+   			$("div").last().css("background","red")
+   		});
+
+   		$("#b3").click(function() {
+   			// $("div:first").css("background","red")
+   			$("div:not(.one)").css("background","red")
+   		});
+   		$("#b3_1").click(function() {
+   			$("div[title='aa']:not(.one)").css("background","red");
+   		});
+   		$("#b4").click(function() {
+   			$("div:even").css("background","red");
+   		});
+
+   		$("#b5").click(function() {
+   			$("div:odd").css("background","red");
+   		});
+
+   		$("#b6").click(function() {
+   			$("div:gt(3)").css("background","red");
+   		});
+   		$("#b8").click(function() {
+   			$("div:lt(3)").css("background","red");
+   		});
+   		$("#b7").click(function() {
+   			$("div:eq(3)").css("background","red");
+   		});
+
+   		$("#b9").click(function() {
+   			$(":header").css("background","red");
+   		});
+
+   		$("#b10").click(function() {
+   			// $("div").each(function (index,doSomeThing) {
+   			// 	if(index >1 && index <6){
+   			// 		$(this).css("background","red");
+   			// 	}
+   			// })
+   			$("div:lt(6):gt(1)").css("background","red");
+   		});
+   	})
+   </script>
 </html>
 
 
