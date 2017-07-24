@@ -224,30 +224,30 @@ border: 2px groove #ffffff;
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#add").click(function () {
-			$("#first option:selected").each(function(index, el) {
 
-				$("#second").append($("<option value="+$(this).val()+">"+$(this).text()+"</option>"))
-				$(this).remove()
+				// $("#second").append($("<option value="+$(this).val()+">"+$(this).text()+"</option>"))
+				// $(this).remove()
+				$("#first :selected").appendTo("#second")
 
-			});
+
 		})
 
 		$("#add_all").click(function () {
-			$("#first option").each(function(index, el) {
+			$("#first >option").each(function(index, el) {
 
-				$("#second").append($("<option value="+$(this).val()+">"+$(this).text()+"</option>"))
-				$(this).remove()
-
+				// $("#second").append($("<option value="+$(this).val()+">"+$(this).text()+"</option>"))
+				// $(this).remove()
+				$(this).appendTo("#second")
 			});
 		})
 
 		$("#remove").click(function () {
-			$("#second option:selected").each(function(index, el) {
 
-				$("#first").append($("<option value="+$(this).val()+">"+$(this).text()+"</option>"))
-				$(this).remove()
+				// $("#first").append($("<option value="+$(this).val()+">"+$(this).text()+"</option>"))
+				// $(this).remove()
+				$("#second :selected").appendTo("#first")
 
-			});
+
 		})
 
 		$("#remove_all").click(function () {

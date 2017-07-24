@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Extract local variable &apos;jsonArray&apos; from expression &apos;JSONArray.fromObject(arr)&apos;&#x0D;&#x0A;- Original project: &apos;Jquery-Day01-2&apos;&#x0D;&#x0A;- Variable name: &apos;jsonArray&apos;&#x0D;&#x0A;- Destination method: &apos;test.testJson.test01()&apos;&#x0D;&#x0A;- Variable expression: &apos;JSONArray.fromObject(arr)&apos;&#x0D;&#x0A;- Replace occurrences of expression with variable" description="Extract local variable &apos;jsonArray&apos;" final="false" id="org.eclipse.jdt.ui.extract.temp" input="/src&lt;test{testJson.java" name="jsonArray" replace="true" selection="291 0" stamp="1500862288880" version="1.0"/>
+</session>

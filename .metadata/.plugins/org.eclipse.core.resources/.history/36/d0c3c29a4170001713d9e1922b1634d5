@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>传统ajax</title>
+</head>
+<body>
+AJAX页面
+<input type="button" value="点击发送请求" id="b1"/>
+
+
+</body>
+</html>
