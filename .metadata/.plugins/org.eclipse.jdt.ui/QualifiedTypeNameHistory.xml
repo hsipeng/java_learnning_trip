@@ -7,7 +7,6 @@
 <fullyQualifiedTypeName name="cn.bean.Person"/>
 <fullyQualifiedTypeName name="cn.dao.PersonDao"/>
 <fullyQualifiedTypeName name="java.sql.SQLException"/>
-<fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="javax.annotation.Resource"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Component"/>
 <fullyQualifiedTypeName name="org.aspectj.lang.annotation.Aspect"/>
@@ -16,11 +15,9 @@
 <fullyQualifiedTypeName name="cn.anno.SaveToMap"/>
 <fullyQualifiedTypeName name="java.lang.annotation.Annotation"/>
 <fullyQualifiedTypeName name="java.lang.reflect.Method"/>
-<fullyQualifiedTypeName name="java.lang.Object"/>
 <fullyQualifiedTypeName name="com.sun.javafx.collections.MappingChange.Map"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="cn.bean.User"/>
-<fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="cn.util.SaveMap"/>
 <fullyQualifiedTypeName name="org.springframework.context.annotation.EnableAspectJAutoProxy"/>
 <fullyQualifiedTypeName name="org.junit.runner.RunWith"/>
@@ -28,4 +25,18 @@
 <fullyQualifiedTypeName name="org.springframework.test.context.ContextConfiguration"/>
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="cn.servlet.PersonServlet"/>
+<fullyQualifiedTypeName name="org.junit.Test"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="java.lang.Object"/>
+<fullyQualifiedTypeName name="net.sf.json.JsonConfig"/>
+<fullyQualifiedTypeName name="net.sf.json.JSONObject"/>
+<fullyQualifiedTypeName name="product.Product"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.lang.Override"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="bean.User"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="net.sf.json.JSONArray"/>
 </qualifiedTypeNameHistroy>

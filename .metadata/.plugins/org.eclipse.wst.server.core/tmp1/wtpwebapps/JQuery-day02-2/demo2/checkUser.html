@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>验证用户名是否存在</title>
+
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+
+
+
+  </head>
+
+ <body>
+   	用户名:<input id="username" name="username" type="text"/><span id="user_check"></span><br>
+   	密    码    :<input id="password" name="password" type="password"/><br>
+	<input type="submit" value="注册"/>
+  <script src="../js/jquery-1.4.2.js"></script>
+  <script type="text/javascript">
+  $(function () {
+
+    $("#username").blur(function(event) {
+      var name = $("#username").val();
+     $("#user_check").load("../servlet/CheckServlet",{username:name})
+    });
+  })
+  </script>
+</html>

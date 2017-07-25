@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>商品分类信息</title>
+
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+  </head>
+
+  <body>
+   	<span id="s1">数码产品</span>
+	<span id="s2">家用电器</span>
+	<span id="s4">时尚服装</span>
+	<div id="d1">
+
+	</div>
+  </body>
+    <script src="../js/jquery-1.4.2.js"></script>
+    <script type="text/javascript">
+    $(function () {
+      $("span").hover(function () {
+        //鼠标移入时显示
+        $(this).css("background","blue")
+        var productName = $(this).text()
+        $("#d1").load("../servlet/ProductServlet",{name : productName})
+        },function () {
+          $(this).css("background","")
+      })
+    })
+    </script>
+</html>
