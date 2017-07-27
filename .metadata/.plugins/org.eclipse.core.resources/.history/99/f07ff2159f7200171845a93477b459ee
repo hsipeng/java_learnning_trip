@@ -1,0 +1,32 @@
+package controller;
+
+import java.text.SimpleDateFormat;
+
+import org.springframework.beans.factory.annotation.CustomAutowireConfigurer;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.ServletRequestDataBinder;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import bean.User;
+
+@Controller
+public class UserController {
+	@RequestMapping(value="/toUser.action")
+	public String toUser(){
+		return "user";
+	}
+	
+	@RequestMapping(value="/addUser.action")
+	public String addUser(Model model,User user){
+		System.out.println(user);
+		String msg ="添加完成";
+		model.addAttribute("msg",msg);
+		return "hello";
+	}
+	
+	public void IntiBonder(ServletRequestDataBinder binder){
+		binder.registerCustomEditor(java.util.Date.class, new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true));
+	}
+}

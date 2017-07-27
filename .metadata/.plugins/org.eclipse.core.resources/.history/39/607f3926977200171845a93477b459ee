@@ -1,0 +1,17 @@
+package controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class UserController {
+	@RequestMapping(value="/toUser.action")
+	public String toUser(){
+		return "user";
+	}
+	@RequestMapping(value="/addUser.action")
+	public String addUser(){
+		
+		return "hello";
+	}
+}

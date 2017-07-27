@@ -1,0 +1,23 @@
+package controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import bean.User;
+
+@Controller
+public class UserController {
+	@RequestMapping(value="/toUser.action")
+	public String toUser(){
+		return "user";
+	}
+	
+	@RequestMapping(value="/addUser.action")
+	public String addUser(Model model,User user){
+		System.out.println(user);
+		String msg ="添加完成";
+		model.addAttribute("msg",msg);
+		return "hello";
+	}
+}
