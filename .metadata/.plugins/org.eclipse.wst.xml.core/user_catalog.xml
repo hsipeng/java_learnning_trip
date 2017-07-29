@@ -5,4 +5,6 @@
   <uri name="http://www.springframework.org/schema/context/spring-context-3.2.xsd" uri="file:///D:/project/schema/spring-context-3.2.xsd"/>
   <uri name="http://www.springframework.org/schema/tx/spring-tx-3.2.xsd" uri="file:///D:/project/schema/spring-tx-3.2.xsd"/>
   <uri name="http://www.springframework.org/schema/util/spring-util-3.2.xsd" uri="file:///D:/project/schema/spring-util-3.2.xsd"/>
+  <uri name="http://mybatis.org/dtd/mybatis-3-config.dtd" uri="file:///D:/project/schema/lib/mybatis/mybatis-3-config.dtd"/>
+  <uri name="http://mybatis.org/dtd/mybatis-3-mapper.dtd" uri="file:///D:/project/schema/lib/mybatis/mybatis-3-mapper.dtd"/>
 </catalog>
