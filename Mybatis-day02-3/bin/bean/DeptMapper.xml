@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.DeptMapper">
+	<cache/>
+	
+	<select id="oneToMore" resultMap="deptRM">
+		select * from 
+		(select dept_id as d_id,dept_name from dept) d
+		LEFT JOIN
+		(select * from user) u
+		on d.d_id=u.dept_id
+	</select>
+	<!-- 自定义结果集封装 -->
+	<resultMap type="bean.Dept" id="deptRM" autoMapping="true">
+		<!--  主键id，不能省略-->
+		<id column="d_id" property="deptId"/>
+		<result column="dept_name" property="deptName"/>
+		<collection property="uList" ofType="bean.User">
+			<id column="id" property="id"/>
+			<result column="name" property="name"/>
+			<result column="age" property="age"/>
+			<result column="sex" property="sex"/>
+		</collection>
+	</resultMap>
+	
+</mapper>
