@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.buttonz.ssm.dao.UserDao">
+	<resultMap type="cn.buttonz.ssm.pojo.User" id="ResultMap">
+		<id column="id" jdbcType="INTEGER" property="id"/>
+		<result column="user_name" jdbcType="VARCHAR" property="username"/>
+		<result column="password" jdbcType="VARCHAR" property="password"/>
+		<result column="age" jdbcType="INTEGER" property="age"/>
+	</resultMap>
+	<!-- List<User> selectAll();
+	int insert(User user);
+	User selectById(int id);
+	int updateById(User user); -->
+	<select id="selectAll" resultMap="ResultMap">
+		select * from user_t;
+	</select>
+	
+	<insert id="insert" parameterType="cn.buttonz.ssm.pojo.User">
+		insert into user_t(user_name, password, age) values(#{username, jdbcType=VARCHAR},#{password, jdbcType=VARCHAR},#{age, jdbcType=INTEGER})
+	</insert>
+	
+	<select id="selectById" parameterType="INTEGER" resultMap="ResultMap">
+		select id, user_name, password, age from user_t where id=#{id,jdbcType=INTEGER}
+	</select>
+	
+	<update id="updateById" parameterType="cn.buttonz.ssm.pojo.User">
+		update user_t set user_name =#{username, jdbcType=VARCHAR},
+				password=#{password, jdbcType=VARCHAR},
+				age=#{age, jdbcType=INTEGER}
+			where id =#{id, jdbcType=INTEGER}
+	</update>
+	
+	<delete id="delById" parameterType="INTEGER">
+		delete from user_t where id = #{id, jdbcType=INTEGER}
+	</delete>
+</mapper>

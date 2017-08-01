@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.UserMapper">
+	<cache/>
+	
+	<select id="oneToMore" resultMap="deptRM">
+		select id as user_id,name as user_name,age as user_age,sex as user_sex from user
+	</select>
+	<!-- 自定义结果集封装 -->
+	<resultMap type="bean.User" id="userRM">
+		<!--  主键id，不能省略-->
+		<id column="user_id" property="id"/>
+		<result column="user_name" property="name"/>
+		<result column="user_age" property="age"/>
+		<result column="user_sex" property="sex"/>
+	</resultMap>
+	
+	
+	<resultMap type="bean.User" id="userRMOneToOne" autoMapping="true">
+		<!--  主键id，不能省略-->
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="age" property="age"/>
+		<result column="sex" property="sex"/>
+		<association property="dept" javaType="bean.Dept">
+			<id column="dept_id" property="deptId"/>
+			<result column="dept_name" property="deptName"/>
+		</association>
+	</resultMap>
+	
+	<select id="oneToOne" resultType="bean.User" resultMap="userRMOneToOne">
+		SELECT u.id,u.name,u.age,u.sex,d.dept_id,d.dept_name FROM 
+		(SELECT * FROM user) u 
+		LEFT JOIN (SELECT * FROM dept) d 
+		on u.dept_id=d.dept_id
+	</select>
+</mapper>

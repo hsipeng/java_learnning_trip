@@ -1,0 +1,45 @@
+package test;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.naming.InitialContext;
+
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.junit.Before;
+import org.junit.Test;
+
+import bean.User;
+import mapper.UserMapper;
+
+public class TestMybatis {
+	SqlSessionFactory sqlSessionFactory =null;
+	@Before
+	public  void init() throws IOException{
+		//获取sqlMapperConfig.xml
+	InputStream inputStream = Resources.getResourceAsStream("sqlMapConfig.xml");
+	//SqlSessinFactory
+	sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+	//sqlSession
+	
+				//namespace id
+	}
+	@Test
+	public void test01() throws IOException{
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+		System.out.println(mapper);
+		List<User> uList = mapper.findAll();
+		for (User user : uList) {
+			System.out.println(user);
+		}
+	}
+	
+	
+}

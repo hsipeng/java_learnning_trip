@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.UserMapper">
+	<cache/>
+	<select id="findAll" resultType="bean.User">
+		select * from user
+	</select>
+	
+	<select id="findAll_U" resultType="bean.User">
+		select id as user_id,name as user_name,age as user_age,sex as user_sex from user
+	</select>
+	<!-- 自定义结果集封装 -->
+	<resultMap type="bean.User" id="userRM">
+		<!--  主键id，不能省略-->
+		<id column="user" property="id"/>
+		<result column="name" property=""/>
+		<result column="name" property=""/>
+		<result column="name" property=""/>
+	</resultMap>
+</mapper>

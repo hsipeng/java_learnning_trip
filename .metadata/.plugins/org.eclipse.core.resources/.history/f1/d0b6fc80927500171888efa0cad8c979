@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bean.UserMapper">
+
+	<select id="findAll" resultType="bean.User">
+		select * from user;
+	</select>
+	
+	<insert id="addUser" parameterType="bean.User">
+		insert into user values(null,#{name},#{age},#{sex});
+	</insert>
+	
+	<select id="findOne" resultType="bean.User">
+		select * from user where id =2;
+	</select>
+	
+	<select id="findUserByAge" resultType="bean.User">
+		select * from user order by ${age};
+	</select>
+	
+	<select id="findUserAge" resultType="bean.User">
+		select * from user where age >#{minAge} and age <#{maxAge};
+	</select>	
+</mapper>

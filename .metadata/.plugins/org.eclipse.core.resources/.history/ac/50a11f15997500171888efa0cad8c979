@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bean.UserMapper">
+	<sql id="selectUser">
+		select * from user
+	</sql>
+	<select id="findAll" resultType="bean.User">
+		select * from user;
+	</select>
+	
+	<insert id="addUser" parameterType="bean.User">
+		insert into user values(null,#{name},#{age},#{sex});
+	</insert>
+	
+	<select id="findOne" resultType="bean.User">
+		select * from user where id =2;
+	</select>
+	
+	<select id="findUserByAge" resultType="bean.User">
+		select * from user order by ${age};
+	</select>
+	
+	<select id="findUserAge" resultType="bean.User">
+		select * from user where age >#{minAge} and <![CDATA[age <#{maxAge}]]>;
+	</select>
+	
+	<update id="updateUser" parameterType="bean.User">
+		update user 
+		<set>
+			<if test="name!=null">name=#{name},</if>
+			<if test="age!=0">age=#{age},</if>
+			<if test="sex!=null">sex=#{sex}</if>
+		</set> where id=#{id};
+	</update>
+	
+	<select id="findMoreUser" parameterType="bean.User" resultType="bean.User">
+		<include refid="selectUser"/> 
+		<where>
+			<if test="id!=0">id=#{id}</if>
+			<if test="name!=null">name=#{name}</if>
+			<if test="age!=0">age=#{age}</if>
+			<if test="sex!=null">sex=#{sex}</if>
+		</where>
+	</select>	
+</mapper>
