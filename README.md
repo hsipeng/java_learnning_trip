@@ -1,3 +1,3 @@
 # java_learnning_trip
 
-![./SSM.png]()
+![](https://raw.githubusercontent.com/lirawx/java_learnning_trip/master/SSM.png)
